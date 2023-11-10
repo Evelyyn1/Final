@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .contenedor-items {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .item {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .item img {
+            margin: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .item a {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            text-decoration: none;
+            color: #0078d4;
+            transition: color 0.3s;
+        }
+        .item a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-items">
+        <div class="item">
+            <img src="./html.png" alt="" width="50px" height="45px">
+            <img class="j" src="./javascript-logo.png" alt="" width="90px" height="45px">
+            <img src="./CSS3_logo.svg.png" alt="" width="50px" height="45px"><br>
+            <a href="./rickandmorty/">Rick and Morty</a>
+            <a href="./ApiClima/">Api Clima</a><br>
+            <a href="./canvas/">Canvas</a>
+            <a href="./Animaciones/snake.html">Snake</a>
+            <a href="./Animaciones/moves.html">Zombies</a><br>
+            <a href="./Animaciones/index.html">Rebota</a>
+            <a href="./canvas/index.html">Dibujo</a><br>
+            <a href="./dom/coloresbg.html
+
+
+
+
+
+const lienzo = document.querySelector('#lienzo');
+const ctx = lienzo.getContext('2d');
+
+
+ctx.fillStyle = 'yellow';
+ctx.beginPath();
+ctx.arc(200, 100, 80, 0, 2 * Math.PI, false);
+ctx.closePath();
+ctx.fill();
+
+
+ctx.fillStyle = 'black';
+ctx.beginPath();
+ctx.arc(80, 100, 40, 0, Math.PI, true);
+ctx.closePath();
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(40, 100, 40, 0, Math.PI, true);
+ctx.closePath();
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(20, 100, 20, 0, Math.PI, true);
+ctx.closePath();
+ctx.fill();
+
+ctx.save();
+ctx.scale(-1, 1); // Reflejar horizontalmente.
+
+ctx.beginPath();
+ctx.arc(-80, 100, 40, 0, Math.PI, true);
+ctx.closePath();
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(-40, 100, 40, 0, Math.PI, true);
+ctx.closePath();
+ctx.fill();
+
+function drawStar(x, y, radius, spikes, rotation) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.translate(x, y);
+    ctx.rotate(rotation * Math.PI / 180);
+    ctx.moveTo(0, -radius);
+    for (let i = 0; i < spikes; i++) {
+        ctx.lineTo(0, -radius * 0.5);
+        ctx.rotate(Math.PI / spikes);
+        ctx.lineTo(0, -radius);
+        ctx.rotate(Math.PI / spikes);
+    }
+    ctx.closePath();
+    ctx.fillStyle = 'white'; // Cambia el color de la estrella.
+    ctx.fill();
+    ctx.restore();
+}
